@@ -16,6 +16,9 @@ power_gadget_static:
 power_gadget: 
 	gcc $(CFLAGS) power_gadget.c -I. -L. -lrapl -o power_gadget -lm
 
+singlesource:
+	gcc -g power_gadget_singlesource.c -o power_gadget -lm
+
 gprof: CFLAGS = -pg
 gprof: all
 	./power_gadget -e 100 -d 60 >/dev/null 2>&1
